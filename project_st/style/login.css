@@ -1,0 +1,264 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+/* color pallete
+dark to brighter
+#030307
+#323234
+#ECEEFF
+#D0A616 */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+
+}
+
+#cursor{
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: #ECEEFF;
+    position: fixed;
+    z-index: 9;
+}
+
+#cursor_blur{
+    height: 250px;
+    width: 250px;
+    background: #D0A616;
+    border-radius: 50%;
+    position: fixed;
+    filter: blur(70px);
+    z-index: 9;
+}
+
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background:#030307;
+}
+.container{
+    position: relative;
+    width: 70vw;
+    height: 80vh;
+    background: #ECEEFF;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.3),0 4px 20px 0 rgba(0,0,0,0.3) ;
+    overflow: hidden;
+}
+.container::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(-45deg,#D0A616,#fbd046);
+    z-index: 6;
+    transform: translateX(100%);
+    transition: 1s ease-in-out;
+}
+
+.singin-signup{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    z-index: 9;
+}
+form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 40%;
+    min-width:238px;
+    padding:0 10px ;
+}
+
+form.sign-in-form{
+    opacity: 1;
+    transition: 0.5s ease-in-out;
+    transition-delay: 1s ;
+}
+
+form.sign-up-form{
+    opacity: 0;
+    transition: 0.5s ease-in-out;
+    transition-delay:1s ;
+}
+
+.title{
+    font-size: 35px;
+    font-weight: 700;
+    color: #323234;
+    margin-bottom: 10px;
+}
+
+.input-feild{
+    width: 100%;
+    height: 50px;
+    background: #ECEEFF;
+    margin: 10px 0;
+    border: 2px solid #323234;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+}
+
+.input-feild svg{
+    flex: 1;
+    text-align: center;
+    color: #323234;
+    font-size: 18px;
+}
+.input-feild input{
+    flex: 5;
+    background: none;
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 18px;
+    font-weight: 700;
+    color: #323234;
+}
+.btn{
+    width: 150px;
+    height: 50px;
+    border: none;
+    border-radius: 50px;
+    background: #323234;
+    color: #ECEEFF;
+    font-weight: 600;
+    margin: 10px 0;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+.btn:hover{
+    background: #D0A616;
+}
+.social-text{
+    margin: 10px 0;
+    font-size: 16px;
+}
+.social-media{
+    display: flex;
+    /* align-items: center; */
+    justify-self: center;
+}
+
+.social-icons{
+    height: 45px;
+    width: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #323234;
+    border: 1px solid #444;
+    border-radius: 50px;
+    margin: 0 5px;
+}
+a{
+    text-decoration: none;
+}
+
+.social-icons:hover{
+    color: #D0A616;
+    border-color: #df4adf;
+}
+
+.panels-container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.panel{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 35%;
+    min-width: 238px;
+    padding: 0 10px;
+    text-align: center;
+    z-index: 10;
+}
+.left-panel{
+    pointer-events: none;
+}
+
+.image{
+    width: 100%;
+    transition: 1.1s ease-in-out;
+    transition-delay: 0.2s;
+}
+.content{
+    color: #ECEEFF;
+    transition: 1.1s ease-in-out;
+    transition-delay: 0.5s;
+}
+.panel h3{
+    font-size: 24px;
+    font-weight: 600;
+}
+.panel p{
+    font-size: 15px;
+    padding: 10px 0;
+}
+
+.left-panel .image,
+.left-panel .content{
+    transform: translateX(-200%);
+}
+
+.right-panel .image,
+.right-panel .content{
+    transform: translateX(0);
+}
+
+.container.sign-up-mode::before{
+    transform: translateX(0);
+}
+
+.container.sign-up-mode .right-panel .image,
+.container.sign-up-mode .right-panel .content{
+    transform: translateX(200%);
+}
+
+.container.sign-up-mode .left-panel .image,
+.container.sign-up-mode .left-panel .content{
+    transform: translateX(0);
+}
+
+.container.sign-up-mode form.sign-in-form{
+    opacity: 0;
+}
+
+.container.sign-up-mode form.sign-up-form{
+    opacity: 1;
+}
+
+.container.sign-up-mode .right-panel{
+    pointer-events: none;
+}
+
+.container.sign-up-mode .left-panel{
+    pointer-events: all;
+}
